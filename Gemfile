@@ -36,3 +36,6 @@ gem 'jbuilder', '~> 1.0.1'
 
 # To use debugger
 # gem 'debugger'
+
+# Use factories instead of fixtures.
+gem 'factory_girl_rails', group: :development
