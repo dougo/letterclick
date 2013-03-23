@@ -39,3 +39,6 @@ gem 'jbuilder', '~> 1.0.1'
 
 # Use factories instead of fixtures.
 gem 'factory_girl_rails', group: :development
+
+# Test helpers.
+gem 'shoulda', group: :test
