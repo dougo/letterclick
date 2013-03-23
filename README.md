@@ -1,4 +1,4 @@
-letterclick
+Letterclick
 ===========
 
-Web-based clone of Letterpress.
+A web-based clone of Letterpress.
