@@ -37,8 +37,13 @@ gem 'jbuilder', '~> 1.0.1'
 # To use debugger
 # gem 'debugger'
 
-# Use factories instead of fixtures.
-gem 'factory_girl_rails', group: :development
+group :development, :test do
+  # Use factories instead of fixtures.
+  gem 'factory_girl_rails'
+end
 
-# Test helpers.
-gem 'shoulda', group: :test
+group :test do
+  # Rails 4 uses MiniTest instead of Test::Unit, and shoulda doesn't
+  # support it (yet).
+  # gem 'shoulda'
+end
