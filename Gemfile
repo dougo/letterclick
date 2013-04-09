@@ -43,7 +43,7 @@ group :development, :test do
 end
 
 group :test do
-  # Rails 4 uses MiniTest instead of Test::Unit, and shoulda doesn't
-  # support it (yet).
-  # gem 'shoulda'
+  gem 'minitest-matchers'
+  gem 'minitest-matcher-library'
+  gem 'valid_attribute'
 end

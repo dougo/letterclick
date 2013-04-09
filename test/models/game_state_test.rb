@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class GameStateTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'associations' do
+    assert_must belong_to(:game), GameState
+  end
 end

@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class GameTest < ActiveSupport::TestCase
+  test 'associations' do
+    assert_must have_many(:states), Game
+  end
+
   test 'new game has random letters' do
     game = Game.new
     assert_equal 25, game.letters.size
