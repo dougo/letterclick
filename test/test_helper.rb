@@ -12,3 +12,9 @@ class ActiveSupport::TestCase
   include MinitestMatcherLibrary::TestHelpers
   include ValidAttribute::Method
 end
+
+class ActionController::TestCase
+  def json_resp
+    ActiveSupport::JSON.decode(@response.body)
+  end
+end
