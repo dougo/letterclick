@@ -6,9 +6,10 @@ class GameTest < ActiveSupport::TestCase
   end
 
   test 'new game has random letters' do
+    srand 1234
     game = Game.new
     assert_equal 25, game.letters.size
-    assert_not_equal game.letters, Game.new.letters
+    assert_equal 'PTGVMUYZPRXJLMWYQFQJWPSQM', game.letters
   end
 
   test 'new game has initial state' do
