@@ -1,7 +1,7 @@
 GIT
   remote: git://github.com/dougo/inherited_resources.git
-  revision: 2fff43d352237995e4552fd6684d699878bc80cc
-  branch: rails-4
+  revision: fce9532f0a3251393d6b923f802aa924f2481367
+  branch: rails-4-deprecation-warning
   specs:
     inherited_resources (1.4.0)
       has_scope (~> 0.5.0)

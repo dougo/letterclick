@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 1.0.1'
 
 # Reduce controller boilerplate code.
 gem 'responders', :git => 'git://github.com/plataformatec/responders.git'
-gem 'inherited_resources', :git => 'git://github.com/dougo/inherited_resources.git', :branch => 'rails-4'
+gem 'inherited_resources', :git => 'git://github.com/dougo/inherited_resources.git', :branch => 'rails-4-deprecation-warning'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
