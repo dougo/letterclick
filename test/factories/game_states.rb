@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :game_state do
-    game nil
-    whose_turn ""
+    game
+    turn 1
   end
 end
