@@ -15,6 +15,6 @@ class GameTest < ActiveSupport::TestCase
   test 'new game has initial state' do
     game = Game.new
     assert_equal 1, game.states.size
-    assert_equal 1, game.state.whose_turn
+    assert_equal 1, game.state.turn
   end
 end

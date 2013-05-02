@@ -39,6 +39,6 @@ class Game < ActiveRecord::Base
 
   after_initialize do
     self.letters ||= (1..25).map { LETTERS.sample }.join
-    states.build if states.empty?
+    states.build(:turn => 1) if states.empty?
   end
 end
