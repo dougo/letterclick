@@ -3,5 +3,5 @@ class Move < ActiveRecord::Base
 
   serialize :indices, Array
 
-  validates :game_state, :indices, :presence => true
+  validates :game_state, :indices, presence: true
 end
