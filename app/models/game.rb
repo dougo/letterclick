@@ -34,11 +34,19 @@ class Game < ActiveRecord::Base
   LETTERS = FREQS.flat_map { |letter, freq| (letter.to_s * freq).split '' }
 
   def state
+    # TODO: This doesn't work for non-persisted states.
+    # https://gist.github.com/dougo/5516162
+    # states.order('turn').last
     states.last
   end
 
   after_initialize do
     self.letters ||= (1..25).map { LETTERS.sample }.join
-    states.build(:turn => 1) if states.empty?
+    states.build(turn: 1) if states.empty?
+  end
+
+  def move(indices)
+    states.build(turn: state.turn + 1)
+    state.build_move(indices: indices)
   end
 end

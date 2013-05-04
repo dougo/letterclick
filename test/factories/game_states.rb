@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :game_state do
     game
-    turn 1
+    turn 2
   end
 end

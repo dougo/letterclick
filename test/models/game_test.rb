@@ -17,4 +17,11 @@ class GameTest < ActiveSupport::TestCase
     assert_equal 1, game.states.size
     assert_equal 1, game.state.turn
   end
+
+  test 'make a move' do
+    srand 1234
+    game = Game.new
+    game.move([1, 14, 11, 3])
+    assert_equal 'YOLO', game.state.move.word
+  end
 end
