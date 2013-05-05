@@ -8,7 +8,6 @@ class GameTest < ActiveSupport::TestCase
   test 'new game has random letters' do
     srand 1234
     game = Game.new
-    assert_equal 25, game.letters.size
     assert_equal 'NYIOUEENEFHLHFOSWTNNUIIIS', game.letters
   end
 
@@ -16,6 +15,7 @@ class GameTest < ActiveSupport::TestCase
     game = Game.new
     assert_equal 1, game.states.size
     assert_equal 1, game.state.turn
+    assert_equal [GameState::UNCLAIMED]*game.letters.size, game.state.squares
   end
 
   test 'make a move' do

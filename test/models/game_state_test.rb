@@ -13,6 +13,9 @@ class GameStateTest < ActiveSupport::TestCase
     assert_wont have_valid(:turn).when(-42, 0, 3.14), game1_state1
     assert_must have_valid(:turn).when(1, 2, 3), game1_state1
 
+    assert_wont have_valid(:squares).when([0]*7), game1_state1
+    assert_must have_valid(:squares).when([0]*Game::SIZE**2), game1_state1
+
     game1_state2 = FactoryGirl.build(:game_state, game: game1)
     assert_wont have_valid(:turn).when(1), game1_state2
 

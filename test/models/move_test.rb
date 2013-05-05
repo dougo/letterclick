@@ -15,6 +15,6 @@ class MoveTest < ActiveSupport::TestCase
 
   test 'indices serialization' do
     m = FactoryGirl.create(:move)
-    assert_equal [9, 0, 1, 2, 5], m.indices
+    assert_equal [9, 0, 1, 2, 5], m.reload.indices
   end
 end

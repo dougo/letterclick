@@ -4,5 +4,6 @@ FactoryGirl.define do
   factory :game_state do
     game
     turn 2
+    squares [GameState::UNCLAIMED]*Game::SIZE**2
   end
 end

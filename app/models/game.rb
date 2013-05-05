@@ -1,4 +1,6 @@
 class Game < ActiveRecord::Base
+  SIZE = 5
+
   has_many :states, class_name: 'GameState', inverse_of: :game
   has_many :moves, inverse_of: :game
 
@@ -42,8 +44,10 @@ class Game < ActiveRecord::Base
   end
 
   after_initialize do
-    self.letters ||= (1..25).map { LETTERS.sample }.join
-    states.build(turn: 1) if states.empty?
+    self.letters ||= (1..SIZE**2).map { LETTERS.sample }.join
+    if states.empty?
+      states.build(turn: 1, squares: [GameState::UNCLAIMED]*SIZE**2)
+    end
   end
 
   def move(indices)
