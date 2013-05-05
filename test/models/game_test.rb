@@ -22,6 +22,6 @@ class GameTest < ActiveSupport::TestCase
     srand 1234
     game = Game.new
     game.move([1, 14, 11, 3])
-    assert_equal 'YOLO', game.state.move.word
+    assert_equal 'YOLO', game.moves.last.word
   end
 end

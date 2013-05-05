@@ -1,5 +1,6 @@
 class Game < ActiveRecord::Base
   has_many :states, class_name: 'GameState', inverse_of: :game
+  has_many :moves, inverse_of: :game
 
   # Letter frequencies stolen from Lexulous.  I hope they won't mind.
   FREQS = {
@@ -46,7 +47,7 @@ class Game < ActiveRecord::Base
   end
 
   def move(indices)
+    moves.build(turn: state.turn, indices: indices)
     states.build(turn: state.turn + 1)
-    state.build_move(indices: indices)
   end
 end

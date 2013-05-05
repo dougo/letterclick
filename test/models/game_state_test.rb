@@ -3,12 +3,15 @@ require 'test_helper'
 class GameStateTest < ActiveSupport::TestCase
   test 'associations' do
     assert_must belong_to(:game), GameState
-    assert_must have_one(:move), GameState
   end
 
   test 'validations' do
     game1 = FactoryGirl.create(:game)
-    assert_wont have_valid(:game).when(nil), game1.state
+    game1_state1 = game1.state
+    assert_wont have_valid(:game).when(nil), game1_state1
+
+    assert_wont have_valid(:turn).when(-42, 0, 3.14), game1_state1
+    assert_must have_valid(:turn).when(1, 2, 3), game1_state1
 
     game1_state2 = FactoryGirl.build(:game_state, game: game1)
     assert_wont have_valid(:turn).when(1), game1_state2

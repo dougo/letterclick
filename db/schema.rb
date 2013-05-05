@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130502202541) do
+ActiveRecord::Schema.define(version: 20130505135832) do
 
   create_table "game_states", force: true do |t|
     t.integer  "game_id"
@@ -29,10 +29,11 @@ ActiveRecord::Schema.define(version: 20130502202541) do
   end
 
   create_table "moves", force: true do |t|
-    t.integer  "game_state_id"
+    t.integer  "game_id"
     t.string   "indices"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "turn"
   end
 
   create_table "players", force: true do |t|
