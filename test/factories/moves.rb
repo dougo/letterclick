@@ -2,6 +2,6 @@ FactoryGirl.define do
   factory :move do
     game
     turn 1
-    indices [9, 0, 1, 2, 5]
+    indices 'WORD'.chars.map { |l| l.ord - 'A'.ord }
   end
 end

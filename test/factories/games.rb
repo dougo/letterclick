@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :game do
+    letters 'ABCDEFGHIJKLMNOPQRSTUVWXY'
   end
 end

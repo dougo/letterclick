@@ -2,6 +2,7 @@ require 'test_helper'
 
 class GameTest < ActiveSupport::TestCase
   should have_many(:states)
+  should have_many(:moves)
 
   test 'new game has random letters' do
     srand 1234
