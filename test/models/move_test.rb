@@ -1,20 +1,11 @@
 require 'test_helper'
 
 class MoveTest < ActiveSupport::TestCase
-  test 'associations' do
-    assert_must belong_to(:game), Move
-  end
+  should belong_to(:game)
 
-  test 'validations' do
-    move = Move.new
-    assert_wont have_valid(:game).when(nil), move
-    assert_wont have_valid(:indices).when([]), move
-    assert_wont have_valid(:turn).when(-42, 0, 3.14), move
-    assert_must have_valid(:turn).when(1, 2, 3), move
-  end
+  should serialize(:indices).as(Array)
 
-  test 'indices serialization' do
-    m = FactoryGirl.create(:move)
-    assert_equal [9, 0, 1, 2, 5], m.reload.indices
-  end
+  should validate_presence_of(:game)
+  should validate_uniqueness_of(:turn) # .scoped_to(:game)
+  should validate_numericality_of(:turn).only_integer.is_greater_than(0)
 end

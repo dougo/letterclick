@@ -1,20 +1,19 @@
 source 'https://rubygems.org'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0.rc1'
+gem 'rails'
 
 gem 'sqlite3'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 4.0.0.beta1'
-  gem 'coffee-rails', '~> 4.0.0.beta1'
+  gem 'sass-rails'
+  gem 'coffee-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', platforms: :ruby, require: 'v8'
 
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier'
 end
 
 gem 'jquery-rails'
@@ -23,11 +22,10 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.0.1'
+gem 'jbuilder'
 
 # Reduce controller boilerplate code.
-gem 'responders', :git => 'git://github.com/plataformatec/responders.git'
-gem 'inherited_resources', :git => 'git://github.com/dougo/inherited_resources.git', :branch => 'rails-4-deprecation-warning'
+gem 'inherited_resources', :github => 'josevalim/inherited_resources'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -47,7 +45,5 @@ group :development, :test do
 end
 
 group :test do
-  gem 'minitest-matchers'
-  gem 'minitest-matcher-library'
-  gem 'valid_attribute'
+  gem 'shoulda'
 end

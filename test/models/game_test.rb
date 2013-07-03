@@ -1,9 +1,7 @@
 require 'test_helper'
 
 class GameTest < ActiveSupport::TestCase
-  test 'associations' do
-    assert_must have_many(:states), Game
-  end
+  should have_many(:states)
 
   test 'new game has random letters' do
     srand 1234

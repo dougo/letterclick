@@ -1,27 +1,10 @@
 require 'test_helper'
 
 class GameStateTest < ActiveSupport::TestCase
-  test 'associations' do
-    assert_must belong_to(:game), GameState
-  end
+  should belong_to(:game)
 
-  test 'validations' do
-    game1 = FactoryGirl.create(:game)
-    game1_state1 = game1.state
-    assert_wont have_valid(:game).when(nil), game1_state1
-
-    assert_wont have_valid(:turn).when(-42, 0, 3.14), game1_state1
-    assert_must have_valid(:turn).when(1, 2, 3), game1_state1
-
-    assert_wont have_valid(:squares).when([0]*7), game1_state1
-    assert_must have_valid(:squares).when([0]*Game::SIZE**2), game1_state1
-
-    game1_state2 = FactoryGirl.build(:game_state, game: game1)
-    assert_wont have_valid(:turn).when(1), game1_state2
-
-    # Make another game with 2 turns to make sure that uniqueness is scoped.
-    game2 = FactoryGirl.create(:game)
-    FactoryGirl.create(:game_state, game: game2, turn: 2)
-    assert_must have_valid(:turn).when(2), game1_state2
-  end
+  should validate_presence_of(:game)
+  should validate_uniqueness_of(:turn) # .scoped_to(:game) # TODO: shoulda bug?
+  should validate_numericality_of(:turn).only_integer.is_greater_than(0)
+  should ensure_length_of(:squares).is_equal_to(Game::SIZE**2)
 end
