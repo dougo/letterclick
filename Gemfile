@@ -44,6 +44,14 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
+group :development do
+  # Browse the stack trace when an error is raised.
+  gem 'better_errors'
+
+  # Get a console in the browser when an error is raised.
+  gem 'binding_of_caller'
+end
+
 group :test do
   gem 'shoulda'
 end
