@@ -11,8 +11,16 @@ class ActiveSupport::TestCase
   extend Shoulda::Matchers::ActiveModel
 end
 
-class ActionController::TestCase
+module ControllerTestHelpers
   def json_resp
     ActiveSupport::JSON.decode(@response.body)
   end
+end
+
+class ActionController::TestCase
+  include ControllerTestHelpers
+end
+
+class ActionDispatch::IntegrationTest
+  include ControllerTestHelpers
 end
