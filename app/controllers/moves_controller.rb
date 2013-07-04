@@ -6,4 +6,8 @@ class MovesController < ApplicationController
   def permitted_params
     params.permit(:move => { :indices => [] })
   end
+
+  def build_resource
+    @move ||= parent.move(params[:move][:indices])
+  end
 end

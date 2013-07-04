@@ -22,5 +22,6 @@ class GameTest < ActiveSupport::TestCase
     game = Game.new
     game.move([1, 14, 11, 3])
     assert_equal 'YOLO', game.moves.last.word
+    # TODO: check game.state.squares
   end
 end

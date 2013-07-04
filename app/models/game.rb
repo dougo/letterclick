@@ -51,7 +51,9 @@ class Game < ActiveRecord::Base
   end
 
   def move(indices)
-    moves.build(turn: state.turn, indices: indices)
+    indices = Array.wrap(indices).map &:to_i
+    move = moves.build(turn: state.turn, indices: indices)
     states.build(turn: state.turn + 1)
+    move
   end
 end
