@@ -13,5 +13,6 @@ class MoveTest < ActiveSupport::TestCase
   test 'word' do
     move = FactoryGirl.build(:move)
     assert_equal 'WORD', move.word
+    assert_equal 'WORD', move.as_json['word']
   end
 end

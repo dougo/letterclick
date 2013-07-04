@@ -13,9 +13,16 @@ class Move < ActiveRecord::Base
       last_turn = last_move ? last_move.turn : 0
       self.turn = last_turn + 1
     end
+    self.indices = Array.wrap(indices).map &:to_i
   end
 
   def word
     indices.map { |i| game.letters[i] }.join
+  end
+
+  def serializable_hash(options = nil)
+    options ||= {}
+    methods = Array.wrap(options[:methods])
+    super(options.merge(:methods => methods + [:word]))
   end
 end
