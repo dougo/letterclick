@@ -36,24 +36,20 @@ class Game < ActiveRecord::Base
 
   LETTERS = FREQS.flat_map { |letter, freq| (letter.to_s * freq).split '' }
 
-  def state
-    # TODO: This doesn't work for non-persisted states.
-    # https://gist.github.com/dougo/5516162
-    # states.order('turn').last
-    states.last
-  end
-
   after_initialize do
+    # TODO: this can result in a board with more than one Z.  Is that ok?
+    # Otherwise, shuffle the letters and pick the first SIZE**2.
     self.letters ||= (1..SIZE**2).map { LETTERS.sample }.join
     if states.empty?
       states.build(turn: 1, squares: [GameState::UNCLAIMED]*SIZE**2)
     end
   end
 
-  def move(indices)
-    indices = Array.wrap(indices).map &:to_i
-    move = moves.build(turn: state.turn, indices: indices)
-    states.build(turn: state.turn + 1)
-    move
+  def state
+    states.order('turn').last
+  end
+
+  def next_state(move)
+    state.next(move)
   end
 end

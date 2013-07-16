@@ -22,10 +22,12 @@ class GameFlowTest < ActionDispatch::IntegrationTest
     get "/games/#{game['id']}/state.json"
     assert_response :success, json_resp
     state2 = json_resp
-    # TODO: save the new state!
-    # assert_equal state1['turn'] + 1, state2['turn']
-    # TODO:
-    # indices.each { |i| squares[i] = 1 }
+    assert_equal state1['turn'] + 1, state2['turn']
+    squares = [1, 1, 1, 0, 0,
+               1, 0, 0, 0, 1,
+               0, 0, 0, 0, 0,
+               0, 0, 0, 0, 0,
+               0, 0, 0, 0, 0]
     assert_equal squares, state2['squares']
   end
 end
