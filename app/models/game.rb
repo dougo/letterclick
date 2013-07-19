@@ -3,6 +3,7 @@ class Game < ActiveRecord::Base
 
   has_many :states, class_name: 'GameState', inverse_of: :game
   has_many :moves, inverse_of: :game
+  has_many :players, inverse_of: :game
 
   # Letter frequencies stolen from Lexulous.  I hope they won't mind.
   FREQS = {
