@@ -24,6 +24,11 @@ class MoveTest < ActiveSupport::TestCase
     assert FactoryGirl.build(:move, indices: [0,11,Game::SIZE**2-1]).valid?
   end
 
+  test 'no repeated indices' do
+    refute FactoryGirl.build(:move, indices: [6,6,6]).valid?
+    refute FactoryGirl.build(:move, indices: [8,0,8]).valid?
+  end
+
   test 'convert indices to ints' do
     move = FactoryGirl.build(:move, indices: ["1", "2", "3"])
     assert move.valid?

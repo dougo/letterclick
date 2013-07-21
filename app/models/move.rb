@@ -13,6 +13,9 @@ class Move < ActiveRecord::Base
     unless indices && indices.all? { |i| i.is_a?(Integer) && range.include?(i) }
       errors.add(:indices, "must be an array of integers in #{range}")
     end
+    unless indices && indices == indices.uniq
+      errors.add(:indices, 'must not repeat')
+    end
   end
 
   after_initialize do
