@@ -1,5 +1,5 @@
 Letterclick::Application.routes.draw do
-  scope 'api/v:api_version' do
+  scope 'api/v:api_version', :defaults => { :format => 'json' } do
     resources :games, only: [:index, :create, :show] do
       resources :states, controller: 'game_states', only: [:index]
       resource :state, controller: 'game_states', only: [:show]

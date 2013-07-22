@@ -4,7 +4,7 @@ class GameStatesControllerTest < ActionController::TestCase
   test 'routes' do
     assert_routing({ :method => 'get', :path => 'api/v1/games/1/state' },
                    { :controller => 'game_states', :action => 'show',
-                     :api_version => '1', :game_id => '1' })
+                     :format => 'json', :api_version => '1', :game_id => '1' })
     # TODO: test other routes
   end
 
