@@ -5,7 +5,12 @@ class Move < ActiveRecord::Base
 
   validates :game, :indices, presence: true
   validates :turn, uniqueness: { scope: :game }
-  validates :turn, numericality: { only_integer: true, greater_than: 0 }
+  validates :turn, numericality: {
+    only_integer: true, greater_than: 0
+  }
+  validates :seat, presence: true, numericality: {
+    only_integer: true, greater_than: 0, less_than: 3
+  }
   validates :indices, length: { in: 1..Game::SIZE**2 }
 
   validate :indices do

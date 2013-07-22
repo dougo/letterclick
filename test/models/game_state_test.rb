@@ -15,8 +15,8 @@ class GameStateTest < ActiveSupport::TestCase
   end
 
   test 'next' do
-    state = FactoryGirl.build(:game_state)
-    move = FactoryGirl.build(:move, game: state.game, turn: state.turn)
+    state = FactoryGirl.create(:game_state)
+    move = FactoryGirl.build(:move, game: state.game)
     next_state = state.next(move)
     assert_equal state.game, next_state.game
     assert_equal 3, next_state.turn
@@ -25,6 +25,20 @@ class GameStateTest < ActiveSupport::TestCase
                   0, 0, 0, 0, 1, # klmnO
                   0, 0, 1, 0, 0, # pqRst
                   0, 0, 1, 0, 0  # uvWxy
+                 ], next_state.squares
+  end
+
+  test 'next for seat 2' do
+    state = FactoryGirl.create(:game_state)
+    move = FactoryGirl.build(:move, game: state.game, seat: 2)
+    next_state = state.next(move)
+    assert_equal state.game, next_state.game
+    assert_equal 3, next_state.turn
+    assert_equal [0, 0, 0, 2, 0, # abcDe
+                  0, 0, 0, 0, 0, # fghij
+                  0, 0, 0, 0, 2, # klmnO
+                  0, 0, 2, 0, 0, # pqRst
+                  0, 0, 2, 0, 0  # uvWxy
                  ], next_state.squares
   end
 end

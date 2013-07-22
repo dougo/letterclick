@@ -4,6 +4,6 @@ class MovesController < ApplicationController
   belongs_to :game
 
   def permitted_params
-    params.permit(:move => { :indices => [] })
+    params.permit(:move => [ :seat, { :indices => [] } ])
   end
 end

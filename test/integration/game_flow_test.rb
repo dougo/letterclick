@@ -13,7 +13,9 @@ class GameFlowTest < ActionDispatch::IntegrationTest
     assert_equal squares, state1['squares']
 
     indices = [9,0,1,2,5]
-    post "/api/v1/games/#{game['id']}/moves.json", move: { indices: indices }
+    post "/api/v1/games/#{game['id']}/moves.json", move: {
+      seat: 1, indices: indices
+    }
     assert_response :success, json_resp
     move = json_resp
     word = indices.map { |i| game['letters'][i] }.join

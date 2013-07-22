@@ -6,6 +6,8 @@ class MoveTest < ActiveSupport::TestCase
   should serialize(:indices).as(Array)
 
   should validate_presence_of(:game)
+  should validate_presence_of(:seat)
+  should validate_numericality_of(:seat).only_integer.is_greater_than(0).is_less_than(3)
   should validate_presence_of(:indices)
   should validate_uniqueness_of(:turn) # .scoped_to(:game)
   should validate_numericality_of(:turn).only_integer.is_greater_than(0)

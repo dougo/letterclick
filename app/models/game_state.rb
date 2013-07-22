@@ -12,7 +12,7 @@ class GameState < ActiveRecord::Base
 
   def next(move)
     next_squares = squares.dup
-    move.indices.each { |i| next_squares[i] = 1 }
+    move.indices.each { |i| next_squares[i] = move.seat }
     game.states.build(turn: turn + 1, squares: next_squares)
   end
 end
