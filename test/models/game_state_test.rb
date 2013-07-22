@@ -41,4 +41,15 @@ class GameStateTest < ActiveSupport::TestCase
                   0, 0, 2, 0, 0  # uvWxy
                  ], next_state.squares
   end
+
+  test "locked squares don't change ownership" do
+    state = FactoryGirl.create(:game_state, squares: [2, 2, 0, 0, 2,
+                                                      2, 0, 0, 2, 2,
+                                                      0, 0, 0, 2, 2,
+                                                      0, 0, 2, 2, 2,
+                                                      0, 0, 0, 2, 0])
+    move = FactoryGirl.build(:move, game: state.game, indices: [0, 9, 18])
+    next_state = state.next(move)
+    assert_equal state.squares, next_state.squares
+  end
 end
