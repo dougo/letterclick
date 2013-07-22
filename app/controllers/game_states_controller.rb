@@ -3,6 +3,7 @@ class GameStatesController < ApplicationController
   inherit_resources
   belongs_to :game
   defaults :collection_name => :states
+  actions :index, :show
 
   # For the singular path /games/:game_id/state, return the current game state.
   def resource
