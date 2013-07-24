@@ -25,7 +25,7 @@ gem 'turbolinks'
 gem 'jbuilder'
 
 # Reduce controller boilerplate code.
-gem 'inherited_resources', :github => 'josevalim/inherited_resources'
+gem 'inherited_resources', :github => 'dougo/inherited_resources', :branch => 'deprecated-Relation#all'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

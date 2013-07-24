@@ -2,10 +2,12 @@ require 'test_helper'
 
 class MovesControllerTest < ActionController::TestCase
   test 'routes' do
+    assert_routing({ :method => 'get', :path => 'api/v1/games/1/moves' },
+                   { :controller => 'moves', :action => 'index',
+                     :format => 'json', :api_version => '1', :game_id => '1' })
     assert_routing({ :method => 'post', :path => 'api/v1/games/1/moves' },
                    { :controller => 'moves', :action => 'create',
                      :format => 'json', :api_version => '1', :game_id => '1' })
-    # TODO: test other routes
   end
 
   test 'post permits' do

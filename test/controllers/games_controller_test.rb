@@ -5,12 +5,11 @@ class GamesControllerTest < ActionController::TestCase
     assert_routing({ :method => 'get', :path => 'api/v1/games' },
                    { :controller => 'games', :action => 'index',
                      :format => 'json', :api_version => '1' })
-    # TODO: test other routes
-  end
-
-  test 'index' do
-    get :index, :format => :json, :api_version => 1
-    assert_response :success
-    assert_equal [], json_resp
+    assert_routing({ :method => 'get', :path => 'api/v1/games/1' },
+                   { :controller => 'games', :action => 'show',
+                     :format => 'json', :api_version => '1', :id => '1' })
+    assert_routing({ :method => 'post', :path => 'api/v1/games' },
+                   { :controller => 'games', :action => 'create',
+                     :format => 'json', :api_version => '1' })
   end
 end
