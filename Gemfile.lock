@@ -1,9 +1,8 @@
 GIT
-  remote: git://github.com/dougo/inherited_resources.git
-  revision: 1538e195a2b68be67763aa5509404b2efc42789b
-  branch: deprecated-Relation#all
+  remote: git://github.com/josevalim/inherited_resources.git
+  revision: 6d451d4bb2026b6c1920ba15838adb4d4b2aa3a4
   specs:
-    inherited_resources (1.4.0)
+    inherited_resources (1.4.1)
       has_scope (~> 0.6.0.rc)
       responders (~> 1.0.0.rc)
 
