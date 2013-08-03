@@ -6,4 +6,6 @@ Letterclick::Application.routes.draw do
       resources :moves, only: [:index, :create]
     end
   end
+
+  root to: 'welcome#index'
 end
