@@ -4,3 +4,7 @@
 require File.expand_path('../config/application', __FILE__)
 
 Letterclick::Application.load_tasks
+
+namespace :test do
+  task :run => ['konacha:run']
+end
