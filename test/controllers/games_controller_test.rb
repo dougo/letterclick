@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class GamesControllerTest < ActionController::TestCase
-  test 'routes' do
+  test 'API routes' do
     assert_routing({ :method => 'get', :path => 'api/v1/games' },
                    { :controller => 'games', :action => 'index',
                      :format => 'json', :api_version => '1' })

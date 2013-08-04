@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GameFlowTest < ActionDispatch::IntegrationTest
+class APIGameFlowTest < ActionDispatch::IntegrationTest
   test 'make some moves' do
     post '/api/v1/games'
     assert_response :success, json_resp
