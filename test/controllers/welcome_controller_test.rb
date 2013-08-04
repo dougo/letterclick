@@ -9,8 +9,11 @@ class WelcomeControllerTest < ActionController::TestCase
   test 'index' do
     get :index
     assert_response :success
-    assert_select 'a[href="http://www.atebits.com/letterpress/"]', {
-      text: 'Letterpress'
-    }
+
+    letterpress = 'http://www.atebits.com/letterpress/'
+    assert_select "a[href='#{letterpress}']", text: 'Letterpress'
+
+    github = 'http://github.com/dougo/letterclick/'
+    assert_select "a[href='#{github}']", text: 'Fork me on Github'
   end
 end
