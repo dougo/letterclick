@@ -18,6 +18,10 @@ class GameState < ActiveRecord::Base
     game.states.build(turn: turn + 1, squares: next_squares)
   end
 
+  def score
+    [1, 2].map { |seat| squares.count seat }
+  end
+
   private
 
   def locked_square_at?(i)

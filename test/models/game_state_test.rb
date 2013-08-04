@@ -52,4 +52,12 @@ class GameStateTest < ActiveSupport::TestCase
     next_state = state.next(move)
     assert_equal state.squares, next_state.squares
   end
+
+  test 'score' do
+    state = FactoryGirl.build(:game_state)
+    assert_equal [0, 0], state.score
+
+    state.squares = [1] * 3 + [2] * 4 + [0] * 18
+    assert_equal [3, 4], state.score
+  end
 end
