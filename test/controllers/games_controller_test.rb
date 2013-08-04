@@ -12,4 +12,12 @@ class GamesControllerTest < ActionController::TestCase
                    { :controller => 'games', :action => 'create',
                      :format => 'json', :api_version => '1' })
   end
+
+  test 'index' do
+    game = FactoryGirl.create(:game)
+
+    get :index
+    assert_select '.game', text: /^Game 1:/
+    assert_select '.game a', text: /^Turn 1, score 0&ndash;0/
+  end
 end

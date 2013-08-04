@@ -1,6 +1,6 @@
 Letterclick::Application.routes.draw do
   root to: 'welcome#index'
-  resources :games, only: [:index], defaults: { format: 'html' }
+  resources :games, only: [:index, :show], defaults: { format: 'html' }
 
   scope 'api/v:api_version', :defaults => { :format => 'json' } do
     resources :games, only: [:index, :create, :show] do

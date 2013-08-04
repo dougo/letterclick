@@ -1,5 +1,4 @@
 .game
-  Game
-  = game.id
-  Turn
-  = game.state.turn
+  Game #{game.id}:
+  = link_to game do
+    = render game.state

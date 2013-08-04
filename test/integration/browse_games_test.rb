@@ -6,6 +6,5 @@ class BrowseGamesTest < ActionDispatch::IntegrationTest
 
     visit '/'
     click_link 'Index of games'
-    assert page.has_css? '.game', :text => 'Game 1 Turn 1'
   end
 end
