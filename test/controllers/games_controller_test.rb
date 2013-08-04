@@ -13,11 +13,18 @@ class GamesControllerTest < ActionController::TestCase
                      :format => 'json', :api_version => '1' })
   end
 
-  test 'index' do
+  test 'html index' do
     game = FactoryGirl.create(:game)
 
     get :index
     assert_select '.game', text: /^Game 1:/
     assert_select '.game a', text: /^Turn 1, score 0&ndash;0/
+  end
+
+  test 'html show' do
+    game = FactoryGirl.create(:game)
+
+    get :show, id: game.id
+    assert_select '#game' # container for Backbone app
   end
 end

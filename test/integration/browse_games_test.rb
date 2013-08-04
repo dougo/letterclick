@@ -6,5 +6,6 @@ class BrowseGamesTest < ActionDispatch::IntegrationTest
 
     visit '/'
     click_link 'Index of games'
+    click_link 'Turn 1'
   end
 end
