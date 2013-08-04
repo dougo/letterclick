@@ -44,8 +44,10 @@ group :development, :test do
   # Test Javascript with mocha and chai.
   gem 'konacha'
 
-  # Webkit driver for Capybara testing.
-  # gem 'capybara-webkit'
+  # Javascript mocks, stubs, and spies.
+  gem 'sinon-rails'
+
+  # PhantomJS driver for Capybara testing.
   gem 'poltergeist'
 end
 
