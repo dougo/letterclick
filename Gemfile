@@ -11,9 +11,6 @@ group :assets do
   gem 'coffee-rails'
   gem 'haml-rails'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', platforms: :ruby, require: 'v8'
-
   gem 'uglifier'
 end
 
@@ -43,6 +40,12 @@ gem 'inherited_resources', :github => 'josevalim/inherited_resources'
 group :development, :test do
   # Use factories instead of fixtures.
   gem 'factory_girl_rails'
+
+  # Test Javascript with mocha and chai.
+  gem 'konacha'
+
+  # Webkit driver for Capybara testing.
+  gem 'capybara-webkit'
 end
 
 group :development do

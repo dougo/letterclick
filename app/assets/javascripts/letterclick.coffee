@@ -1,0 +1,4 @@
+@Letterclick =
+  Models: {}
+  Collections: {}
+  Views: {}
