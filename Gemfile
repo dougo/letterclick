@@ -45,7 +45,8 @@ group :development, :test do
   gem 'konacha'
 
   # Webkit driver for Capybara testing.
-  gem 'capybara-webkit'
+  # gem 'capybara-webkit'
+  gem 'poltergeist'
 end
 
 group :development do
