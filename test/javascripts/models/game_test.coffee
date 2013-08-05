@@ -9,8 +9,3 @@ suite 'Game', ->
 
   test 'url is correct', ->
     expect(@game.url()).to.eq '/api/v1/games/1'
-
-  test 'can be fetched', ->
-    @game.fetch()
-    MockServer.respond()
-    expect(@game.get('letters').length).to.eq 25
