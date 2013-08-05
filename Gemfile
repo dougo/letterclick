@@ -44,6 +44,9 @@ group :development, :test do
   # Test Javascript with mocha and chai.
   gem 'konacha'
 
+  # Extra chai matchers.
+  gem 'konacha-chai-matchers'
+
   # Javascript mocks, stubs, and spies.
   gem 'sinon-rails'
 
@@ -60,5 +63,6 @@ group :development do
 end
 
 group :test do
+  # Association and validation matchers.
   gem 'shoulda'
 end
