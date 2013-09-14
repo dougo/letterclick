@@ -37,7 +37,7 @@ class Game < ActiveRecord::Base
 
   LETTERS = FREQS.flat_map { |letter, freq| (letter.to_s * freq).split '' }
 
-  after_initialize do
+  after_initialize if: :new_record? do
     # TODO: this can result in a board with more than one Z.  Is that ok?
     # Otherwise, shuffle the letters and pick the first SIZE**2.
     self.letters ||= (1..SIZE**2).map { LETTERS.sample }.join
