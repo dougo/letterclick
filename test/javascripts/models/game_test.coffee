@@ -9,3 +9,6 @@ suite 'Game', ->
 
   test 'url is correct', ->
     expect(@game.url()).to.eq '/api/v1/games/1'
+
+  test 'has a state', ->
+    expect(@game.get('state')).to.be.an 'object'
