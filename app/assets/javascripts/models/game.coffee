@@ -3,3 +3,8 @@ class Letterclick.Models.Game extends Backbone.Model
 
   defaults: ->
     'state': new Letterclick.Models.GameState(game: @)
+
+  fetch: ->
+    jqxhr = super
+    @get('state').fetch()
+    jqxhr

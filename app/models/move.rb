@@ -31,6 +31,7 @@ class Move < ActiveRecord::Base
     self.indices = indices.map &:to_i if indices
   end
 
+  # TODO: should this be after_create ?
   after_save do
     game.next_state(self).save! if game
   end

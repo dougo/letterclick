@@ -12,3 +12,8 @@ suite 'Game', ->
 
   test 'has a state', ->
     expect(@game.get('state')).to.be.an 'object'
+
+  test 'fetch also fetches the state', ->
+    @game.fetch()
+    MockServer.respond()
+    expect(@game.get('state').get('turn')).to.eq 2
