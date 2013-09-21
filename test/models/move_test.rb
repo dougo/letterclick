@@ -47,7 +47,7 @@ class MoveTest < ActiveSupport::TestCase
     assert_equal 2, move.turn
   end
 
-  test 'save the next state after save' do
+  test 'save the next state after create' do
     move = FactoryGirl.build(:move)
     next_state = move.game.next_state(move)
     assert move.save
