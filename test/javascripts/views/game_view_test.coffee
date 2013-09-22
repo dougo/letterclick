@@ -2,7 +2,7 @@
 
 suite 'GameView', ->
   setup ->
-    $('#konacha').html('<div id="game">')
+    $('#konacha').html('<div class="game">')
     @game = new Letterclick.Models.Game(id: 1)
     @view = new Letterclick.Views.GameView({ model: @game })
     MockServer.respond()

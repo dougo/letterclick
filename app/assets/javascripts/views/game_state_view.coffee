@@ -1,8 +1,7 @@
 class Letterclick.Views.GameStateView extends Backbone.View
-  el: '#game'
-
   initialize: ->
     @game_view = @options.game_view
+    @setElement(@game_view.el)
     @model.on 'change', @render, @
 
   render: ->
