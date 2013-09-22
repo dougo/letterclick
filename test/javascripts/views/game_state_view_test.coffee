@@ -15,10 +15,10 @@ suite 'GameStateView', ->
     expect(@view.model.get('squares').length).to.eq 25
 
   test 'colors squares by owner', ->
-    expect(@view.$el.find('.letter').length).to.eq 25
-    W = @view.$el.find('.letter:contains("W")')
-    G = @view.$el.find('.letter:contains("G")')
-    B = @view.$el.find('.letter:contains("B")')
+    expect(@view.$('.letter').length).to.eq 25
+    W = @view.$('.letter:contains("W")')
+    G = @view.$('.letter:contains("G")')
+    B = @view.$('.letter:contains("B")')
 
     expect(W).to.have.class('player1')
     expect(W).not.to.have.class('player2')

@@ -14,11 +14,11 @@ suite 'GameView', ->
     expect(@game.get('letters').length).to.eq 25
 
   test 'shows the letters', ->
-    letters = @view.$el.find('.letter')
+    letters = @view.$('.letter')
     expect(letters.first()).to.have.text 'A'
     expect(letters.last()).to.have.text  'Y'
 
   test 'shows the letters in rows', ->
-    rows = @view.$el.find('.row')
+    rows = @view.$('.row')
     expect(rows.first()).to.have.text 'ABCDE'
     expect(rows.last()).to.have.text  'UVWXY'
