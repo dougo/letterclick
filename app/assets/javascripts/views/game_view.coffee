@@ -1,6 +1,4 @@
 class Letterclick.Views.GameView extends Backbone.View
-  el: '.game'
-
   initialize: ->
     state = @model.get('state')
     @state_view = new Letterclick.Views.GameStateView(model: state, game_view: @)

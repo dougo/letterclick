@@ -25,6 +25,6 @@ class GamesControllerTest < ActionController::TestCase
     game = FactoryGirl.create(:game)
 
     get :show, id: game.id
-    assert_select '.game' # container for Backbone app
+    assert_select "[data-game-id=#{game.id}]" # container for Backbone app
   end
 end

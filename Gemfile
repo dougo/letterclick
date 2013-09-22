@@ -50,7 +50,7 @@ group :development, :test do
   # Javascript mocks, stubs, and spies.
   gem 'sinon-rails'
 
-  # PhantomJS driver for Capybara testing.
+  # PhantomJS driver for Javascript testing.
   gem 'poltergeist'
 end
 
