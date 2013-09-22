@@ -13,3 +13,4 @@
     new @Views.GameView(model: game, el: $el)
 
 $ -> Letterclick.start()
+$(document).on 'page:load', -> Letterclick.start()
