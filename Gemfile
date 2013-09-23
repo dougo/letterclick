@@ -65,4 +65,7 @@ end
 group :test do
   # Association and validation matchers.
   gem 'shoulda'
+
+  # MiniTest assertions for Capybara matchers.
+  gem 'minitest-capybara'
 end

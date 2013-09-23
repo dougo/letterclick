@@ -28,6 +28,7 @@ end
 class ActionDispatch::IntegrationTest
   include ControllerTestHelpers
   include Capybara::DSL
+  include Capybara::Assertions
 end
 
 # TODO: is it better to use database_cleaner?
