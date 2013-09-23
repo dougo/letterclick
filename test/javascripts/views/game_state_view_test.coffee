@@ -7,23 +7,23 @@ suite 'GameStateView', ->
     MockServer.respond()
 
   test 'has a game_view', ->
-    expect(@view.game_view).to.be.an 'object'
+    assert.isObject @view.game_view
 
   test 'fetches the GameState', ->
-    expect(@view.model.get('turn')).to.eq 2
-    expect(@view.model.get('squares').length).to.eq 25
+    assert.equal @view.model.get('turn'), 2
+    assert.equal @view.model.get('squares').length, 25
 
   test 'colors squares by owner', ->
-    expect(@view.$('.letter').length).to.eq 25
+    assert.equal @view.$('.letter').length, 25
     W = @view.$('.letter:contains("W")')
     G = @view.$('.letter:contains("G")')
     B = @view.$('.letter:contains("B")')
 
-    expect(W).to.have.class('player1')
-    expect(W).not.to.have.class('player2')
+    assert.hasClass   W, 'player1'
+    assert.hasNoClass W, 'player2'
 
-    expect(G).not.to.have.class('player1')
-    expect(G).to.have.class('player2')
+    assert.hasNoClass G, 'player1'
+    assert.hasClass   G, 'player2'
 
-    expect(B).not.to.have.class('player1')
-    expect(B).not.to.have.class('player2')
+    assert.hasNoClass B, 'player1'
+    assert.hasNoClass B, 'player2'

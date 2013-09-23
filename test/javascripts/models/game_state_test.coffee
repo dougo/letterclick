@@ -6,7 +6,7 @@ suite 'GameState', ->
     @state = new Letterclick.Models.GameState(game: game)
 
   test 'belongs to a game', ->
-    expect(@state.get('game')).to.be.an 'object'
+    assert.isObject @state.get('game')
 
   test 'url is correct', ->
-    expect(@state.url()).to.eq @state.get('game').url() + '/state'
+    assert.equal @state.url(), @state.get('game').url() + '/state'

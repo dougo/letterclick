@@ -5,15 +5,15 @@ suite 'Game', ->
     @game = new Letterclick.Models.Game(id: 1)
 
   test 'can be constructed', ->
-    expect(@game).to.be.an 'object'
+    assert.isObject @game
 
   test 'url is correct', ->
-    expect(@game.url()).to.eq '/api/v1/games/1'
+    assert.equal @game.url(), '/api/v1/games/1'
 
   test 'has a state', ->
-    expect(@game.get('state')).to.be.an 'object'
+    assert.isObject @game.get('state')
 
   test 'fetch also fetches the state', ->
     @game.fetch()
     MockServer.respond()
-    expect(@game.get('state').get('turn')).to.eq 2
+    assert.strictEqual @game.get('state').get('turn'), 2

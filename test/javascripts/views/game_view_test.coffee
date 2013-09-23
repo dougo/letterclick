@@ -7,17 +7,17 @@ suite 'GameView', ->
     MockServer.respond()
 
   test 'has a state_view', ->
-    expect(@view.state_view).to.be.an 'object'
+    assert.instanceOf @view.state_view, Letterclick.Views.GameStateView
 
   test 'fetches the Game', ->
-    expect(@game.get('letters').length).to.eq 25
+    assert.equal @game.get('letters').length, 25
 
   test 'shows the letters', ->
     letters = @view.$('.letter')
-    expect(letters.first()).to.have.text 'A'
-    expect(letters.last()).to.have.text  'Y'
+    assert.hasText letters.first(), 'A'
+    assert.hasText letters.last(),  'Y'
 
   test 'shows the letters in rows', ->
     rows = @view.$('.row')
-    expect(rows.first()).to.have.text 'ABCDE'
-    expect(rows.last()).to.have.text  'UVWXY'
+    assert.hasText rows.first(), 'ABCDE'
+    assert.hasText rows.last(),  'UVWXY'
