@@ -1,5 +1,8 @@
 #= require test_helper
 
+# TODO: this should be exported by test_helper... somehow.
+refute = chai.refute
+
 suite 'GameStateView', ->
   setup ->
     game = new Letterclick.Models.Game(id: 1)
@@ -19,11 +22,11 @@ suite 'GameStateView', ->
     G = @view.$('.letter:contains("G")')
     B = @view.$('.letter:contains("B")')
 
-    assert.hasClass   W, 'player1'
-    assert.hasNoClass W, 'player2'
+    assert.hasClass W, 'player1'
+    refute.hasClass W, 'player2'
 
-    assert.hasNoClass G, 'player1'
-    assert.hasClass   G, 'player2'
+    refute.hasClass G, 'player1'
+    assert.hasClass G, 'player2'
 
-    assert.hasNoClass B, 'player1'
-    assert.hasNoClass B, 'player2'
+    refute.hasClass B, 'player1'
+    refute.hasClass B, 'player2'
