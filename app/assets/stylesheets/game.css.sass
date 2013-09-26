@@ -1,13 +1,25 @@
+@mixin letter-font($size)
+  font:
+    family: "Lucida Console", Monaco, monospace
+    weight: bold
+    size: $size
+
 .board
   border-collapse: collapse
 .letter
   text-align: center
-  font-size: 80px
   min-width: 100px
   line-height: 100px
-  font-family: "Lucida Console", Monaco, monospace
-  font-weight: bold  
+  @include letter-font(80px)
 .letter.player1
   background-color: lightblue
 .letter.player2
   background-color: pink
+.letter:hover
+  background-color: yellow
+  cursor: pointer
+.word
+  margin-top: 80px
+  text-align: center
+  width: 500px
+  @include letter-font(60px)

@@ -30,3 +30,14 @@ suite 'GameStateView', ->
 
     refute.hasClass B, 'player1'
     refute.hasClass B, 'player2'
+
+  test 'moves letters to the word view when you click on it', ->
+    @view.$('.letter:contains("B")').click()
+    word = @view.game_view.$('.word')
+    assert.hasText(word, 'B')
+
+    @view.$('.letter:contains("A")').click()
+    assert.hasText(word, 'BA')
+
+    @view.$('.letter:contains("D")').click()
+    assert.hasText(word, 'BAD')
