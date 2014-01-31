@@ -3,11 +3,11 @@
 suite 'GameStateView', ->
   setup ->
     game = new Letterclick.Models.Game(id: 1)
-    @view = new Letterclick.Views.GameView(model: game).state_view
+    @view = new Letterclick.Views.GameView(model: game).stateView
     MockServer.respond()
 
-  test 'has a game_view', ->
-    assert.instanceOf Letterclick.Views.GameView, @view.game_view
+  test 'has a gameView', ->
+    assert.instanceOf Letterclick.Views.GameView, @view.gameView
 
   test 'fetches the GameState', ->
     assert.equal 2, @view.model.get('turn')
@@ -30,7 +30,7 @@ suite 'GameStateView', ->
 
   test 'moves letters to the word view when you click on it', ->
     @view.$('.letter:contains("B")').click()
-    word = @view.game_view.$('.word')
+    word = @view.gameView.$('.word')
     assert.hasText 'B', word
 
     @view.$('.letter:contains("A")').click()

@@ -16,9 +16,9 @@ suite 'Letterclick', ->
     $('body').attr('data-game-id', '1')
     assert.instanceOf Letterclick.Views.GameView, Letterclick.start()
 
-  test '.start_game makes a model and view', ->
+  test '.startGame makes a model and view', ->
     $('body').data('game-id', 1)
-    view = Letterclick.start_game($('body'))
+    view = Letterclick.startGame($('body'))
     assert.instanceOf Letterclick.Views.GameView, view
     assert.instanceOf Letterclick.Models.Game, view.model
     assert.equal 1, view.model.id

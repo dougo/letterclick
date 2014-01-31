@@ -19,11 +19,11 @@ MockServer.respondWith(
 
 squares = (0 for i in [1..25])
 
-word_indices = (l.charCodeAt(0) - 'A'.charCodeAt(0) for l in 'WORD')
-game_indices = (l.charCodeAt(0) - 'A'.charCodeAt(0) for l in 'GAME')
+wordIndices = (l.charCodeAt(0) - 'A'.charCodeAt(0) for l in 'WORD')
+gameIndices = (l.charCodeAt(0) - 'A'.charCodeAt(0) for l in 'GAME')
 
-squares[i] = 1 for i in word_indices
-squares[i] = 2 for i in game_indices
+squares[i] = 1 for i in wordIndices
+squares[i] = 2 for i in gameIndices
 
 MockServer.respondWith(
   'GET',

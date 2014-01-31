@@ -1,11 +1,11 @@
 class Letterclick.Views.GameStateView extends Backbone.View
   initialize: ->
-    @game_view = @options.game_view
-    @setElement(@game_view.el)
+    @gameView = @options.gameView
+    @setElement(@gameView.el)
     @model.on 'change', @render, @
 
   events:
-    'click .letter' : 'move_letter'
+    'click .letter' : 'moveLetter'
 
   render: ->
     letters = @$el.find('.letter')
@@ -17,7 +17,7 @@ class Letterclick.Views.GameStateView extends Backbone.View
         $(letter).addClass('player2')
     @
 
-  move_letter: (e) ->
+  moveLetter: (e) ->
     letter = $(e.target).text()
-    word = @game_view.$('.word').text()
-    @game_view.$('.word').text(word + letter)
+    word = @gameView.$('.word').text()
+    @gameView.$('.word').text(word + letter)

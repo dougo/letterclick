@@ -6,8 +6,8 @@ suite 'GameView', ->
     @view = new Letterclick.Views.GameView(model: @game)
     MockServer.respond()
 
-  test 'has a state_view', ->
-    assert.instanceOf Letterclick.Views.GameStateView, @view.state_view
+  test 'has a stateView', ->
+    assert.instanceOf Letterclick.Views.GameStateView, @view.stateView
 
   test 'fetches the Game', ->
     assert.equal 25, @game.get('letters').length
