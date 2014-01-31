@@ -1,8 +1,5 @@
 #= require test_helper
 
-# TODO: this should be exported by test_helper... somehow.
-refute = chai.refute
-
 suite 'GameStateView', ->
   setup ->
     game = new Letterclick.Models.Game(id: 1)
@@ -10,34 +7,34 @@ suite 'GameStateView', ->
     MockServer.respond()
 
   test 'has a game_view', ->
-    assert.isObject @view.game_view
+    assert.instanceOf Letterclick.Views.GameView, @view.game_view
 
   test 'fetches the GameState', ->
-    assert.equal @view.model.get('turn'), 2
-    assert.equal @view.model.get('squares').length, 25
+    assert.equal 2, @view.model.get('turn')
+    assert.equal 25, @view.model.get('squares').length
 
   test 'colors squares by owner', ->
-    assert.equal @view.$('.letter').length, 25
+    assert.equal 25, @view.$('.letter').length
     W = @view.$('.letter:contains("W")')
     G = @view.$('.letter:contains("G")')
     B = @view.$('.letter:contains("B")')
 
-    assert.hasClass W, 'player1'
-    refute.hasClass W, 'player2'
+    assert.hasClass 'player1', W
+    refute.hasClass 'player2', W
 
-    refute.hasClass G, 'player1'
-    assert.hasClass G, 'player2'
+    refute.hasClass 'player1', G
+    assert.hasClass 'player2', G
 
-    refute.hasClass B, 'player1'
-    refute.hasClass B, 'player2'
+    refute.hasClass 'player1', B
+    refute.hasClass 'player2', B
 
   test 'moves letters to the word view when you click on it', ->
     @view.$('.letter:contains("B")').click()
     word = @view.game_view.$('.word')
-    assert.hasText(word, 'B')
+    assert.hasText 'B', word
 
     @view.$('.letter:contains("A")').click()
-    assert.hasText(word, 'BA')
+    assert.hasText 'BA', word
 
     @view.$('.letter:contains("D")').click()
-    assert.hasText(word, 'BAD')
+    assert.hasText 'BAD', word

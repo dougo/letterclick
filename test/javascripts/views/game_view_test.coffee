@@ -3,21 +3,21 @@
 suite 'GameView', ->
   setup ->
     @game = new Letterclick.Models.Game(id: 1)
-    @view = new Letterclick.Views.GameView({ model: @game })
+    @view = new Letterclick.Views.GameView(model: @game)
     MockServer.respond()
 
   test 'has a state_view', ->
-    assert.instanceOf @view.state_view, Letterclick.Views.GameStateView
+    assert.instanceOf Letterclick.Views.GameStateView, @view.state_view
 
   test 'fetches the Game', ->
-    assert.equal @game.get('letters').length, 25
+    assert.equal 25, @game.get('letters').length
 
   test 'shows the letters', ->
     letters = @view.$('.letter')
-    assert.hasText letters.first(), 'A'
-    assert.hasText letters.last(),  'Y'
+    assert.hasText 'A', letters.first()
+    assert.hasText 'Y', letters.last()
 
   test 'shows the letters in rows', ->
     rows = @view.$('.row')
-    assert.hasText rows.first(), 'ABCDE'
-    assert.hasText rows.last(),  'UVWXY'
+    assert.hasText 'ABCDE', rows.first()
+    assert.hasText 'UVWXY', rows.last()

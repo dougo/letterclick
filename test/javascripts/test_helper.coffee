@@ -1,7 +1,9 @@
 #= require application
 #= require sinon
-#= require chai-jquery
+#= require minitest
 #= require_tree ./support
 
 mocha.ui('tdd')
-chai.Assertion.includeStack = true
+@assert = minitest.assert
+@refute = minitest.refute
+

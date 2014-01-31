@@ -5,15 +5,15 @@ suite 'Game', ->
     @game = new Letterclick.Models.Game(id: 1)
 
   test 'can be constructed', ->
-    assert.isObject @game
+    assert.instanceOf Letterclick.Models.Game, @game
 
   test 'url is correct', ->
-    assert.equal @game.url(), '/api/v1/games/1'
+    assert.equal '/api/v1/games/1', @game.url()
 
   test 'has a state', ->
-    assert.isObject @game.get('state')
+    assert.instanceOf Letterclick.Models.GameState, @game.get('state')
 
   test 'fetch also fetches the state', ->
     @game.fetch()
     MockServer.respond()
-    assert.strictEqual @game.get('state').get('turn'), 2
+    assert.equal 2, @game.get('state').get('turn')
