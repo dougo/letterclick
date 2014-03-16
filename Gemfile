@@ -53,4 +53,12 @@ group :test do
 
   # MiniTest assertions for Capybara matchers.
   gem 'minitest-capybara'
+
+  # Code coverage.
+  gem 'simplecov'
+end
+
+group :development, :test do
+  # Interactive debugger.
+  gem 'byebug'
 end
