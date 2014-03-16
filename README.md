@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/dougo/letterclick.png?branch=master)](https://travis-ci.org/dougo/letterclick)
+
 Letterclick
 ===========
 
