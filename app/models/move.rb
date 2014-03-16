@@ -13,15 +13,7 @@ class Move < ActiveRecord::Base
   }
   validates :indices, length: { in: 1..Game::SIZE**2 }
 
-  validate :indices do
-    range = 0...Game::SIZE**2
-    unless indices && indices.all? { |i| i.is_a?(Integer) && range.include?(i) }
-      errors.add(:indices, "must be an array of integers in #{range}")
-    end
-    unless indices && indices == indices.uniq
-      errors.add(:indices, 'must not repeat')
-    end
-  end
+  validate :validate_indices
 
   after_initialize do
     self.turn ||= game.state.turn if game
@@ -43,5 +35,17 @@ class Move < ActiveRecord::Base
     options ||= {}
     methods = Array.wrap(options[:methods])
     super(options.merge(:methods => methods + [:word]))
+  end
+
+  private
+
+  def validate_indices
+    range = 0...Game::SIZE**2
+    unless indices && indices.all? { |i| i.is_a?(Integer) && range.include?(i) }
+      errors.add(:indices, "must be an array of integers in #{range}")
+    end
+    unless indices && indices == indices.uniq
+      errors.add(:indices, 'must not repeat')
+    end
   end
 end

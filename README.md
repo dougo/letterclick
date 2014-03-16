@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/dougo/letterclick.png?branch=master)](https://travis-ci.org/dougo/letterclick)
+[![Code Climate](https://codeclimate.com/github/dougo/letterclick.png)](https://codeclimate.com/github/dougo/letterclick)
 
 Letterclick
 ===========
