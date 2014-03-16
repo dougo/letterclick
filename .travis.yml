@@ -1,3 +1,7 @@
 language: ruby
 rvm:
   - 2.1.0
+cache:
+  bundler: true
+  directories:
+    - tmp/cache/assets/test/sprockets
