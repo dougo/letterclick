@@ -6,30 +6,32 @@ class APIGameFlowTest < ActionDispatch::IntegrationTest
     assert_response :success, json_resp
     game = json_resp
     
-    get "/api/v1/games/#{game['id']}/state"
+    get "/api/v1/games/#{game[:id]}/state"
     assert_response :success, json_resp
     state1 = json_resp
     squares = [0]*25
-    assert_equal squares, state1['squares']
+    assert_equal squares, state1[:squares]
 
     indices = [9,0,1,2,5]
-    post "/api/v1/games/#{game['id']}/moves", move: {
+    post "/api/v1/games/#{game[:id]}/moves", move: {
       seat: 1, indices: indices
     }
     assert_response :success, json_resp
     move = json_resp
-    word = indices.map { |i| game['letters'][i] }.join
-    assert_equal word, move['word']
+    word = indices.map { |i| game[:letters][i] }.join
+    assert_equal word, move[:word]
 
-    get "/api/v1/games/#{game['id']}/state"
+    get "/api/v1/games/#{game[:id]}/state"
     assert_response :success, json_resp
     state2 = json_resp
-    assert_equal state1['turn'] + 1, state2['turn']
-    squares = [1, 1, 1, 0, 0,
-               1, 0, 0, 0, 1,
-               0, 0, 0, 0, 0,
-               0, 0, 0, 0, 0,
-               0, 0, 0, 0, 0]
-    assert_equal squares, state2['squares']
+    assert_equal state1[:turn] + 1, state2[:turn]
+    squares = [
+      1, 1, 1, 0, 0,
+      1, 0, 0, 0, 1,
+      0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0
+    ]
+    assert_equal squares, state2[:squares]
   end
 end

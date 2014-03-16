@@ -17,7 +17,7 @@ end
 
 module ControllerTestHelpers
   def json_resp
-    ActiveSupport::JSON.decode(@response.body)
+    ActiveSupport::JSON.decode(@response.body, :symbolize_keys => true)
   end
 end
 
